@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="container col-8">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <p class="h3">Sign up</p>
+      <%= devise_error_messages! %>
+      <div class="row">
+        <div class="col-sm p-3">
+          <div class="form-group">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+        </div>
+        <%= f.fields_for :profile do |p| %>
+          <div class="col-sm p-3">
+            <div class="form-group">
+              <%= p.label :address_line %><br />
+              <%= p.text_field :address_line, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= p.label :street %><br />
+              <%= p.text_field :street, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= p.label :landmark %><br />
+              <%= p.text_field :landmark, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= p.label :city %><br />
+              <%= p.text_field :city, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= p.label :state %><br />
+              <%= p.text_field :state, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= p.label :pincode %><br />
+              <%= p.text_field :pincode, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= p.label :country %><br />
+              <%= p.text_field :country, class: "form-control" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Sign up", class: "btn btn-primary" %>
+      </div>
+      <div class="clearfix"></div>
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+  
+</div>
