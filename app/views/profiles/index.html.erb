@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Phone no.</th>
+      <th scope="col">City</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_profiles.each do |user_profile| %>
+      <tr>
+        <td><%= user_profile.name %></td>
+        <td><%= user_profile.phone_number %></td>
+        <td><%= user_profile.city %></td>
+        <td><%= link_to "Edit", edit_users_profile_path(user_profile) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

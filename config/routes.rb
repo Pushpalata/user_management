@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'users/registrations'}
-  resources :profiles
+  resource :users, only: [] do
+    resources :profiles, only: [:index, :edit, :update]
+  end
   root 'pages#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

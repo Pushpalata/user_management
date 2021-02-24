@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center">
+  <div class="container col-8">
+    
+    <%= form_for(@profile,  url: users_profile_path(@profile)) do |p| %>
+      <% if current_user.admin_own_profile?(@profile.user_id)%>
+        <p class="h3">My Profile</p>
+        <%= render partial: "admin_profile", locals: { p: p } %>
+      <% elsif current_user.own_profile?(@profile.user_id) %>
+        <p class="h3">My Profile</p>
+        <%= render partial: "my_profile", locals: { p: p } %>
+      <% else %>
+        <p class="h3">User Profile</p>
+        <%= render partial: "my_profile", locals: { p: p } %>
+      <% end %>
+      <div class="actions">
+        <%= p.submit "Update", class: "btn btn-primary" %>
+      </div>
+      <div class="clearfix"></div>
+    <% end %>
+  </div>
+  
+</div>

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm p-3">
+    <div class="form-group">
+      <% if @profile.display_picture.present? %>
+        <%= image_tag(@profile.display_picture, class: "img-thumbnail") %>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= p.label :display_picture %>
+      <%= p.file_field :display_picture %>
+    </div>
+    <div class="form-group">
+      <%= p.label :address_line %><br />
+      <%= p.text_field :address_line, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :street %><br />
+      <%= p.text_field :street, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :landmark %><br />
+      <%= p.text_field :landmark, class: "form-control" %>
+    </div>
+    
+  </div>
+  <div class="col-sm p-3">
+    <div class="form-group">
+      <%= p.label :phone_number %><br />
+      <%= p.text_field :phone_number, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :city %><br />
+      <%= p.text_field :city, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :state %><br />
+      <%= p.text_field :state, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :pincode %><br />
+      <%= p.text_field :pincode, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= p.label :country %><br />
+      <%= p.text_field :country, class: "form-control" %>
+    </div>
+  </div>
+</div>

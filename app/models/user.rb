@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum role: [:user, :admin]
-  validates :name, presence: true
 
   # Associations
   has_one :profile, dependent: :destroy, autosave: true
@@ -13,4 +12,13 @@ class User < ApplicationRecord
   def with_profile
     build_profile if profile.nil?
   end
+
+  def admin_own_profile?(user_id)
+    self.admin? && self.own_profile?(user_id)
+  end
+
+  def own_profile?(user_id)
+    user_id == self.id
+  end
+  
 end

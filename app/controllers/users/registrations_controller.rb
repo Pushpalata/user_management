@@ -7,5 +7,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.build_profile
     respond_with self.resource
   end
-  
+
 end
